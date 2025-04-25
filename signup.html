@@ -1,26 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up - FixMate</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - FixMate</title>
+
+    <!-- Firebase SDK CDN -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+      // Your Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDlEa45pVbdcd0eCtYEuwFTESflsUqo1zM",
+        authDomain: "fixmateauth.firebaseapp.com",
+        projectId: "fixmateauth",
+        storageBucket: "fixmateauth.firebasestorage.app",
+        messagingSenderId: "1025043984690",
+        appId: "1:1025043984690:web:ace32af802e1176047672b",
+        measurementId: "G-JKGCW56BKE"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Sign-Up Function
+      function signUp() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed up successfully
+            alert("User signed up successfully!");
+            window.location.href = "index.html"; // Redirect to main page
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+          });
+      }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Sign-Up Section -->
-  <section class="auth-section">
-    <div class="auth-container">
-      <h2>Create an Account</h2>
-      <form action="#" method="POST" class="auth-form">
-        <input type="text" placeholder="Your Name" class="auth-input" required>
-        <input type="email" placeholder="Your Email" class="auth-input" required>
-        <input type="password" placeholder="Create Password" class="auth-input" required>
-        <button type="submit" class="cta-btn">Sign Up</button>
-      </form>
-      <p class="auth-switch">Already have an account? <a href="login.html">Log in here</a></p>
-    </div>
-  </section>
-
-  <script src="scripts.js" defer></script>
+    <header>
+        <h1>Sign Up to FixMate</h1>
+    </header>
+    <main>
+        <form id="signupForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="button" onclick="signUp()">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </main>
 </body>
 </html>
+tml>

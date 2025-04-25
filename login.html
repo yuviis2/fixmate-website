@@ -1,25 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Log In - FixMate</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FixMate</title>
+
+    <!-- Firebase SDK CDN -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+      // Your Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDlEa45pVbdcd0eCtYEuwFTESflsUqo1zM",
+        authDomain: "fixmateauth.firebaseapp.com",
+        projectId: "fixmateauth",
+        storageBucket: "fixmateauth.firebasestorage.app",
+        messagingSenderId: "1025043984690",
+        appId: "1:1025043984690:web:ace32af802e1176047672b",
+        measurementId: "G-JKGCW56BKE"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Login Function
+      function login() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in successfully
+            alert("Logged in successfully!");
+            window.location.href = "index.html"; // Redirect to main page
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+          });
+      }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Log-In Section -->
-  <section class="auth-section">
-    <div class="auth-container">
-      <h2>Log In to Your Account</h2>
-      <form action="#" method="POST" class="auth-form">
-        <input type="email" placeholder="Your Email" class="auth-input" required>
-        <input type="password" placeholder="Your Password" class="auth-input" required>
-        <button type="submit" class="cta-btn">Log In</button>
-      </form>
-      <p class="auth-switch">Don't have an account? <a href="signup.html">Sign up here</a></p>
-    </div>
-  </section>
-
-  <script src="scripts.js" defer></script>
+    <header>
+        <h1>Login to FixMate</h1>
+    </header>
+    <main>
+        <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+    </main>
 </body>
 </html>

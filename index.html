@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FixMate - Simplify Life</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixMate - Main</title>
+    
+    <!-- Firebase SDK CDN -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
+
+      // Your Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDlEa45pVbdcd0eCtYEuwFTESflsUqo1zM",
+        authDomain: "fixmateauth.firebaseapp.com",
+        projectId: "fixmateauth",
+        storageBucket: "fixmateauth.firebasestorage.app",
+        messagingSenderId: "1025043984690",
+        appId: "1:1025043984690:web:ace32af802e1176047672b",
+        measurementId: "G-JKGCW56BKE"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+
+    <!-- Custom CSS for styling -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Hero Section with Parallax Effect -->
-  <section class="hero">
-    <div class="hero-content">
-      <img src="banner.png" alt="FixMate Banner" class="hero-image">
-      <div class="hero-text">
-        <h1>Welcome to FixMate!</h1>
-        <p>Your solution for everyday tasks made simple and easy!</p>
-        <!-- Link to the Sign-Up page -->
-        <a href="signup.html">
-          <button class="cta-btn">Get Started</button>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <script src="scripts.js" defer></script>
+    <header>
+        <h1>Welcome to FixMate</h1>
+        <p>Your go-to solution for everyday tasks</p>
+    </header>
+    <main>
+        <a href="signup.html" class="button">Sign Up</a>
+        <a href="login.html" class="button">Login</a>
+    </main>
 </body>
 </html>
