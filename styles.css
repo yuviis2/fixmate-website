@@ -1,0 +1,90 @@
+/* General Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Auth Section Styling */
+.auth-section {
+  width: 100%;
+  max-width: 500px; /* Adjusted max-width to fit better */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 0 20px; /* Add margin on the sides to avoid box hitting edge */
+}
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center form elements */
+}
+
+.auth-input {
+  width: 100%; /* Now set to 100% */
+  max-width: 450px; /* Added max-width to keep the input box within limits */
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box; /* Ensures padding doesn’t push the element out */
+}
+
+.auth-input:focus {
+  border-color: #007bff;
+}
+
+.cta-btn {
+  width: 100%; /* Now set to 100% */
+  max-width: 450px; /* Match the width of the input fields */
+  padding: 15px;
+  margin: 20px 0;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box; /* Ensures padding doesn’t push the button out */
+}
+
+.cta-btn:hover {
+  background-color: #0056b3;
+}
+
+.auth-switch {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.auth-switch a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
